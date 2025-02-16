@@ -81,29 +81,25 @@
         <thead class="">
           <tr>
             <th scope="col">#</th>
-            <th scope="col">First</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col">Time</th>
           </tr>
         </thead>
         <tbody class="table-group-divider ">
+
+          {% for todo  in  all_todos %}
+
           <tr>
-            <th scope="row">1</th>
-            <td>Mark</td>
-            <td>Otto</td>
-            <td>@mdo</td>
+            <th scope="row">{{todo.SNO}}</th>
+            <td>{{todo.Title}}</td>
+            <td>{{todo.Description}}</td>
+            <td>{{todo.Date_created}}</td>
           </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-          </tr>
-          <tr>
-            <th scope="row">3</th>
-            <td colspan="2">Larry the Bird</td>
-            <td>@twitter</td>
-          </tr>
+         
+            
+          {% endfor %}
+     
         </tbody>
       </table>
 </div>
