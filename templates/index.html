@@ -54,15 +54,15 @@
 
       <div class="container my-5">
         <h2>Add Item</h2>
-        <form>
+        <form action="/" method="post">
             <div class="mb-3">
-              <label for="exampleInputEmail1" class="form-label">Todo Title</label>
-              <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <label for="title"  class="form-label">Todo Title</label>
+              <input type="text" class="form-control" name="title" id="title" aria-describedby="titleHelp" required>
         
             </div>
             <div class="mb-3">
-              <label for="exampleInputPassword1" class="form-label">Password</label>
-              <input type="password" class="form-control" id="exampleInputPassword1">
+              <label for="description" class="form-label">Description</label>
+              <input type="text" name="description" class="form-control" id="description" required>
             </div>
             <div class="mb-3 form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -91,7 +91,7 @@
           {% for todo  in  all_todos %}
 
           <tr>
-            <th scope="row">{{todo.SNO}}</th>
+            <th scope="row">{{loop.index}}</th>
             <td>{{todo.Title}}</td>
             <td>{{todo.Description}}</td>
             <td>{{todo.Date_created}}</td>
