@@ -1,0 +1,26 @@
+
+{% extends 'base.html' %}
+{% block body %}
+
+<!-- Form Start -->
+
+      <div class="container my-5">
+        <h2>Update Item #{{ todo_item.SNO }}</h2>
+        <form action="/update/{{todo_item.SNO}}" method="post">
+            <div class="mb-3">
+              <label for="title"  class="form-label">Todo Title</label>
+              <input type="text" class="form-control" name="title" id="title" value="{{todo_item.Title}}" aria-describedby="titleHelp" required>
+        
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label">Description</label>
+              <input type="text" name="description" value="{{todo_item.Description}}" class="form-control" id="description" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Update Item</button>
+          </form>
+      </div>
+
+<!-- Form End -->
+
+{% endblock body %}
+

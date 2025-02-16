@@ -31,12 +31,17 @@ def hello_world():
     all_todos = Todo.query.all()
     return render_template("index.html" , all_todos=all_todos)
 
-@app.route("/update")
-def update_data():
-    # todo_item = Todo.query.filter_by(SNO = SNO).first()
-    # db.session.delete(todo_item)
-    # db.session.commit()
-    return redirect("/")
+@app.route("/update/<int:SNO>", methods=['GET', 'POST'])
+def update_data(SNO):
+    todo_item = Todo.query.get_or_404(SNO)  # Get item or return 404
+    
+    if request.method == 'POST':
+        todo_item.Title = request.form['title']
+        todo_item.Description = request.form['description']
+        db.session.commit()  # Save changes
+        return redirect("/")  # Redirect to home after update
+
+    return render_template("update.html", todo_item=todo_item)
 
 @app.route("/delete/<int:SNO>")
 def delete_data(SNO):
